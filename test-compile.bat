@@ -1,0 +1,19 @@
+@echo off
+echo Testing compilation of Secretaire classes...
+
+echo Compiling SecretaireDashboardController...
+javac -cp "target/classes;src/main/java" src/main/java/com/example/hopitalapp/controller/SecretaireDashboardController.java
+
+echo Compiling SecretairePatientsController...
+javac -cp "target/classes;src/main/java" src/main/java/com/example/hopitalapp/controller/SecretairePatientsController.java
+
+echo Compiling SecretaireRendezVousController...
+javac -cp "target/classes;src/main/java" src/main/java/com/example/hopitalapp/controller/SecretaireRendezVousController.java
+
+echo Compiling SecretaireRendezVousFormController...
+javac -cp "target/classes;src/main/java" src/main/java/com/example/hopitalapp/controller/SecretaireRendezVousFormController.java
+
+echo Compiling SecretaireDossierMedicalController...
+javac -cp "target/classes;src/main/java" src/main/java/com/example/hopitalapp/controller/SecretaireDossierMedicalController.java
+
+echo Done!

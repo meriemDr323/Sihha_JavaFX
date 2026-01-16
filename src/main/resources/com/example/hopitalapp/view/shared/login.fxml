@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="450.0"
+            style="-fx-background-color: #f5f5f5;"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.hopitalapp.controller.shared.LoginController">
+
+    <VBox alignment="CENTER" spacing="25.0"
+          AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0"
+          style="-fx-background-color: white; -fx-background-radius: 10;">
+
+        <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+        </padding>
+
+        <VBox alignment="CENTER" spacing="10.0">
+            <Label text="🏥" style="-fx-font-size: 48px;"/>
+            <Label text="Hôpital Sihha" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+            <Label text="Système de Gestion Interne" style="-fx-font-size: 14px; -fx-text-fill: #757575;"/>
+        </VBox>
+
+        <Separator prefWidth="300.0"/>
+
+        <VBox spacing="15.0" prefWidth="300.0">
+            <Label text="Connexion" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <VBox spacing="8.0">
+                <Label text="Email:" style="-fx-font-size: 13px;"/>
+                <TextField fx:id="emailField"
+                           promptText="votreemail@sihha.ma"
+                           style="-fx-pref-height: 40px; -fx-font-size: 14px;"/>
+            </VBox>
+
+            <VBox spacing="8.0">
+                <Label text="Mot de passe:" style="-fx-font-size: 13px;"/>
+                <PasswordField fx:id="passwordField"
+                               promptText="••••••••"
+                               style="-fx-pref-height: 40px; -fx-font-size: 14px;"/>
+            </VBox>
+
+            <Label fx:id="errorLabel"
+                   textFill="RED"
+                   visible="false"
+                   wrapText="true"
+                   style="-fx-font-size: 12px;"/>
+
+            <Button fx:id="loginButton"
+                    text="Se connecter"
+                    prefWidth="300.0"
+                    prefHeight="45.0"
+                    onAction="#handleLogin"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold; -fx-background-radius: 5;">
+            </Button>
+        </VBox>
+
+        <VBox spacing="5.0" alignment="CENTER">
+            <Separator prefWidth="300.0"/>
+            <Label text="Comptes de test:" style="-fx-font-size: 11px; -fx-text-fill: #757575;"/>
+            <Label text="Admin: admin@sihha.com / admin123" style="-fx-font-size: 10px; -fx-text-fill: #9E9E9E;"/>
+            <Label text="Médecin: a.elfassi@hopital.ma / medecin123" style="-fx-font-size: 10px; -fx-text-fill: #9E9E9E;"/>
+            <Label text="Secrétaire: f.amrani@sihha.ma / secretaire123" style="-fx-font-size: 10px; -fx-text-fill: #9E9E9E;"/>
+        </VBox>
+    </VBox>
+</AnchorPane>

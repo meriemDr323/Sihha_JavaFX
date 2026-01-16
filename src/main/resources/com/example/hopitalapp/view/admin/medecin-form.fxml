@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.hopitalapp.controller.admin.MedecinFormController"
+      spacing="15.0"
+      prefWidth="750.0"
+      style="-fx-background-color: white; -fx-padding: 25;">
+
+    <Label fx:id="titleLabel"
+           text="➕ Nouveau Médecin"
+           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+
+    <Separator/>
+
+    <ScrollPane fitToWidth="true" prefHeight="550.0" style="-fx-background-color: transparent;">
+        <VBox spacing="20.0">
+            <padding>
+                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+            </padding>
+
+            <!-- Section 1: Informations personnelles -->
+            <VBox spacing="10.0">
+                <Label text="👤 INFORMATIONS PERSONNELLES"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #555;"/>
+
+                <GridPane hgap="15.0" vgap="12.0">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Nom *" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="nomField" promptText="Nom de famille"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Prénom *" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="prenomField" promptText="Prénom"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="Téléphone *" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="telephoneField" promptText="06XXXXXXXX"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="Email *" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="emailField" promptText="email@exemple.com"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <Label text="Adresse" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="adresseField" promptText="Adresse complète"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label text="Ville" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="villeField" promptText="Ville"/>
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <Separator/>
+
+            <!-- Section 2: Informations professionnelles -->
+            <VBox spacing="10.0">
+                <Label text="🩺 INFORMATIONS PROFESSIONNELLES"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #555;"/>
+
+                <GridPane hgap="15.0" vgap="12.0">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/>
+                        <ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Spécialité *" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <ComboBox fx:id="specialiteComboBox" promptText="Sélectionner" maxWidth="Infinity"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Département" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <ComboBox fx:id="departementComboBox" promptText="Sélectionner" maxWidth="Infinity"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="N° Ordre" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="numeroOrdreField" promptText="Numéro d'ordre"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="Années d'expérience" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="experienceField" promptText="Ex: 5"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <Label text="Tarif consultation (DH)" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextField fx:id="tarifField" promptText="Ex: 300.00"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label text="Statut" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <CheckBox fx:id="actifCheckBox" text="Médecin actif" selected="true"/>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+                        <Label text="Photo de profil" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <TextField fx:id="imageField" promptText="Chemin vers l'image..." HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="browseImageButton" text="📁 Parcourir" onAction="#handleBrowseImage"
+                                    style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5;"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2">
+                        <Label text="Diplômes et formations" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+                        <TextArea fx:id="diplomesArea" promptText="Liste des diplômes et formations..." prefRowCount="3"/>
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+
+        </VBox>
+    </ScrollPane>
+
+    <Separator/>
+
+    <!-- Boutons d'action -->
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Label text="* Champs obligatoires" style="-fx-font-size: 11px; -fx-text-fill: #999;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Annuler"
+                onAction="#handleCancel"
+                style="-fx-background-color: #757575; -fx-text-fill: white; -fx-padding: 10 25; -fx-background-radius: 5; -fx-cursor: hand;"/>
+        <Button fx:id="saveButton"
+                text="Enregistrer"
+                onAction="#handleSave"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 25; -fx-background-radius: 5; -fx-cursor: hand;"/>
+    </HBox>
+
+</VBox>

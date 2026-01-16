@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.hopitalapp.controller.shared.PatientController"
+      spacing="20.0"
+      style="-fx-background-color: white;">
+
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <!-- En-tête -->
+    <HBox alignment="CENTER_LEFT" spacing="15.0">
+        <Label text="👥 Gestion des Patients"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="addButton"
+                text="+ Nouveau Patient"
+                onAction="#handleAddPatient"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 5; -fx-cursor: hand;"/>
+    </HBox>
+
+    <!-- Barre de recherche et statistiques -->
+    <HBox spacing="15.0" alignment="CENTER_LEFT">
+        <VBox spacing="5.0">
+            <Label text="Rechercher un patient:" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+            <HBox spacing="10.0">
+                <TextField fx:id="searchField"
+                           promptText="Nom ou prénom du patient..."
+                           prefWidth="300.0"
+                           style="-fx-pref-height: 35px;"/>
+                <Button text="🔍 Rechercher"
+                        onAction="#handleSearch"
+                        style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-pref-height: 35px; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                <Button text="🔄 Actualiser"
+                        onAction="#handleRefresh"
+                        style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-pref-height: 35px; -fx-background-radius: 5; -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <VBox alignment="CENTER" spacing="5.0"
+              style="-fx-background-color: #E3F2FD; -fx-padding: 15; -fx-background-radius: 10;">
+            <Label text="Total Patients" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+            <Label fx:id="totalPatientsLabel"
+                   text="0"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Tableau des patients -->
+    <TableView fx:id="patientsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50.0"/>
+            <TableColumn fx:id="nomColumn" text="Nom" prefWidth="80"/>
+            <TableColumn fx:id="prenomColumn" text="Prénom" prefWidth="90"/>
+            <TableColumn fx:id="dateNaissanceColumn" text="Date Naissance" prefWidth="110"/>
+            <TableColumn fx:id="ageColumn" text="Âge" prefWidth="50"/>
+            <TableColumn fx:id="sexeColumn" text="Sexe" prefWidth="50"/>
+            <TableColumn fx:id="telephoneColumn" text="Téléphone" prefWidth="100"/>
+            <TableColumn fx:id="villeColumn" text="Ville" prefWidth="100"/>
+            <TableColumn fx:id="groupeSanguinColumn" text="Groupe Sanguin" prefWidth="100"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="250.0"/>
+        </columns>
+    </TableView>
+
+</VBox>

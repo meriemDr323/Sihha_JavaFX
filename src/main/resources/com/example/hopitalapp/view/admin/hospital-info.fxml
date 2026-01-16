@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.hopitalapp.controller.admin.HospitalInfoController"
+      spacing="20.0"
+      style="-fx-background-color: #f3f6fb;">
+
+    <padding>
+        <Insets top="20.0" right="30.0" bottom="20.0" left="30.0"/>
+    </padding>
+
+    <!-- Titre + bouton -->
+    <HBox alignment="CENTER_LEFT" spacing="15.0">
+        <Label text="🛡️ Informations de l'Hôpital"
+               style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="editButton"
+                text="Modifier"
+                onAction="#handleEdit"
+                style="-fx-background-color: linear-gradient(to right, #FF9800, #F57C00); -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-background-radius: 20;"/>
+    </HBox>
+
+    <!-- Carte principale -->
+    <VBox spacing="18.0"
+          style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 12, 0, 0, 4); -fx-padding: 20;">
+
+        <!-- En-tête de la carte -->
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <Label text="🏥"
+                   style="-fx-font-size: 28px;"/>
+            <VBox spacing="2.0">
+                <Label fx:id="nomLabel"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #263238;"/>
+                <Label text="Informations générales"
+                       style="-fx-font-size: 12px; -fx-text-fill: #78909C;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Deux colonnes d'infos -->
+        <GridPane hgap="40.0" vgap="8.0">
+            <columnConstraints>
+                <ColumnConstraints prefWidth="220.0"/>
+                <ColumnConstraints prefWidth="260.0"/>
+                <ColumnConstraints prefWidth="220.0"/>
+                <ColumnConstraints prefWidth="260.0"/>
+            </columnConstraints>
+
+            <!-- Colonne gauche -->
+            <Label text="Adresse" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="adresseLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Ville" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="villeLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Code postal" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="codePostalLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Téléphone" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="telephoneLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <!-- Colonne droite -->
+            <Label text="Email" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <Label fx:id="emailLabel" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+            <Label text="Site web" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <Label fx:id="siteWebLabel" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            <Label text="Nombre total de lits" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <Label fx:id="nombreLitsLabel" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+            <Label text="Capacité urgences" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+            <Label fx:id="capaciteUrgencesLabel" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+            <Label text="Dernière mise à jour" style="-fx-font-weight: bold;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="updatedAtLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Description -->
+        <VBox spacing="5.0"
+              style="-fx-background-color: #FAFAFA; -fx-background-radius: 10; -fx-padding: 10;">
+            <Label text="Description"
+                   style="-fx-font-weight: bold; -fx-text-fill: #37474F;"/>
+            <TextArea fx:id="descriptionArea"
+                      editable="false"
+                      wrapText="true"
+                      prefRowCount="4"
+                      style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-focus-color: transparent;"/>
+        </VBox>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.hopitalapp.controller.admin.ActivitesRecentesController"
+      spacing="15.0"
+      style="-fx-background-color: #f3f6fb;">
+
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <!-- En-tête -->
+    <HBox alignment="CENTER_LEFT" spacing="15.0">
+        <Label text="📊 Activités Récentes"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="🔄 Actualiser" onAction="#handleRefresh"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 5;"/>
+    </HBox>
+
+    <!-- Filtres -->
+    <HBox spacing="15.0" alignment="CENTER_LEFT"
+          style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+        
+        <VBox spacing="5.0">
+            <Label text="Recherche" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+            <TextField fx:id="searchField" promptText="Rechercher..." prefWidth="200"/>
+        </VBox>
+
+        <VBox spacing="5.0">
+            <Label text="Type" style="-fx-font-size: 12px; -fx-text-fill: #757575;"/>
+            <ComboBox fx:id="typeFilter" prefWidth="120"/>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+        
+        <Button text="🗑️ Effacer" onAction="#handleClearFilters"
+                style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-padding: 6 12; -fx-background-radius: 5;"/>
+    </HBox>
+
+    <!-- Statistiques -->
+    <HBox alignment="CENTER_LEFT" spacing="15.0">
+        <Label fx:id="totalActivitesLabel" text="Total: 0 activité(s)"
+               style="-fx-font-size: 14px; -fx-text-fill: #666; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Tableau -->
+    <VBox VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+        <TableView fx:id="activitesTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="200"/>
+                <TableColumn fx:id="utilisateurColumn" text="Utilisateur" prefWidth="150"/>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="150"/>
+                <TableColumn fx:id="statutColumn" text="Statut" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+</VBox>

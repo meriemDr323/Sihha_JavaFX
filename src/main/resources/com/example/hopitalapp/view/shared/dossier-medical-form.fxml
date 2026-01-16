@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.hopitalapp.controller.shared.DossierMedicalFormController"
+      spacing="12" style="-fx-background-color: #ffffff;">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <Label fx:id="titleLabel"
+           text="Dossier médical"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
+
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="130"/>
+            <ColumnConstraints prefWidth="300"/>
+        </columnConstraints>
+
+        <Label text="Diagnostic:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextArea fx:id="diagnosticArea" GridPane.rowIndex="0" GridPane.columnIndex="1" prefRowCount="2"/>
+
+        <Label text="Symptômes:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextArea fx:id="symptomesArea" GridPane.rowIndex="1" GridPane.columnIndex="1" prefRowCount="2"/>
+
+        <Label text="Traitement:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextArea fx:id="traitementArea" GridPane.rowIndex="2" GridPane.columnIndex="1" prefRowCount="2"/>
+
+        <Label text="Observations:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextArea fx:id="observationsArea" GridPane.rowIndex="3" GridPane.columnIndex="1" prefRowCount="2"/>
+
+        <Label text="Poids (kg):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="poidsField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Taille (cm):" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="tailleField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        <Label text="Tension artérielle:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <TextField fx:id="tensionField" GridPane.rowIndex="6" GridPane.columnIndex="1" promptText="120/80"/>
+
+        <Label text="Température (°C):" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+        <TextField fx:id="temperatureField" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Fermer" onAction="#handleCancel"/>
+        <Button fx:id="saveButton" text="Enregistrer" onAction="#handleSave"
+                style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+</VBox>

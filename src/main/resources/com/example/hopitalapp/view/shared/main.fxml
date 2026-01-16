@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.hopitalapp.controller.shared.MainController"
+            prefHeight="700.0" prefWidth="1200.0"
+            style="-fx-background-color: #f5f5f5;">
+
+    <!-- Header / En-tête -->
+    <top>
+        <HBox spacing="15.0" alignment="CENTER_LEFT"
+              style="-fx-background-color: #2196F3; -fx-padding: 15;">
+            <Label text="🏥" style="-fx-font-size: 24px;"/>
+            <Label text="Hôpital Sihha"
+                   style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userNameLabel"
+                   style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Button fx:id="logoutButton"
+                    text="Déconnexion"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;"/>
+        </HBox>
+    </top>
+
+    <!-- Sidebar / Menu latéral -->
+    <left>
+        <VBox fx:id="sidebar"
+              spacing="5.0"
+              style="-fx-background-color: white; -fx-padding: 15; -fx-border-color: #e0e0e0; -fx-border-width: 0 1 0 0;"
+              prefWidth="220.0">
+            <Label text="MENU"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #757575; -fx-padding: 10 0 10 0;"/>
+            <!-- Les boutons de menu seront ajoutés dynamiquement par le contrôleur -->
+        </VBox>
+    </left>
+
+    <!-- Content Area / Zone de contenu -->
+    <center>
+        <StackPane fx:id="contentArea"
+                   style="-fx-background-color: white; -fx-padding: 20;">
+            <VBox alignment="CENTER" spacing="20.0">
+                <Label text="👋" style="-fx-font-size: 48px;"/>
+                <Label text="Bienvenue sur Hôpital Sihha"
+                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+                <Label fx:id="welcomeMessage"
+                       style="-fx-font-size: 16px; -fx-text-fill: #757575;"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

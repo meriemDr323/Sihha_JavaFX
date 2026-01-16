@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.hopitalapp.controller.medecin.MesRendezVousController"
+      spacing="15.0"
+      style="-fx-background-color: #f3f6fb;">
+
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <Label text="Mes Rendez-vous"
+           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher par nom de patient..."
+                   style="-fx-background-radius: 5; -fx-border-radius: 5;" prefWidth="300"/>
+        <ComboBox fx:id="statusFilter" promptText="Filtrer par statut" prefWidth="150"
+                  style="-fx-background-radius: 5; -fx-border-radius: 5;"/>
+    </HBox>
+
+    <TableView fx:id="rendezVousTable" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date &amp; heure" prefWidth="150"/>
+            <TableColumn fx:id="patientColumn" text="Patient" prefWidth="200"/>
+            <TableColumn fx:id="motifColumn" text="Motif" prefWidth="250"/>
+            <TableColumn fx:id="statutColumn" text="Statut" prefWidth="100"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+</VBox>
